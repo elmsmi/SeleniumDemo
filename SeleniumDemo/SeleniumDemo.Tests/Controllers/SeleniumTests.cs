@@ -52,9 +52,6 @@ namespace SeleniumDemo.Tests.Controllers
             driver.FindElement(By.Id("ConfirmPassword")).SendKeys(password);
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
             wait.Until(ExpectedConditions.ElementExists(By.Id("loggedin")));
-
-            //wait.Until(ExpectedConditions.ElementExists(By.CssSelector(".nav.navbar-nav.navbar-right")));
-            //var userWasCreated = driver.FindElement(By.CssSelector(".nav.navbar-nav.navbar-right")).Text.Contains(email);
             var userWasCreated = driver.FindElement(By.Id("loggedin")).Text.Contains(email);
 
             Assert.IsTrue(userWasCreated);
@@ -73,9 +70,6 @@ namespace SeleniumDemo.Tests.Controllers
             driver.FindElement(By.CssSelector(".btn.btn-default")).Click();
             wait.Until(ExpectedConditions.ElementExists(By.Id("loggedin")));
             var userWasCreated = driver.FindElement(By.Id("loggedin")).Text.Contains(email);
-
-            //wait.Until(ExpectedConditions.ElementExists(By.CssSelector(".nav.navbar-nav.navbar-right")));
-            //var userWasCreated = driver.FindElement(By.CssSelector(".nav.navbar-nav.navbar-right")).Text.Contains(email);
             Assert.IsTrue(userWasCreated);
             driver.FindElement(By.Id("logoutForm")).Submit();
         }
